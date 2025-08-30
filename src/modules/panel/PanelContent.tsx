@@ -121,6 +121,11 @@ const PanelContent: React.FC = () => {
     },
   ];
 
+  const coloredSummaryCards = summaryCards.map((card) => ({
+    ...card,
+    color: getClassificationColor(card.title),
+  }));
+
   if (loading) {
     return <div>Carregando candidatos...</div>;
   }
@@ -287,7 +292,17 @@ const PanelContent: React.FC = () => {
                             {candidate.name}
                           </TableCell>
                           <TableCell>{candidate.email}</TableCell>
-                          <TableCell>{candidate.totalScore}</TableCell>
+                          <TableCell
+                            sx={{
+                              color: getClassificationColor(
+                                candidate.classification
+                              ),
+                              fontWeight: "bold", 
+                            }}
+                          >
+                            {candidate.total_score}
+                          </TableCell>
+
                           <TableCell>
                             <Typography
                               component="span"

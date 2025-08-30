@@ -2,7 +2,7 @@ export interface Candidate {
   id: string
   name: string
   email: string
-  totalScore: string
+  total_score: string
   classification: string
   created_at: string
 }
